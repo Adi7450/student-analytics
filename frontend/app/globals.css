@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-base:     #0a0e1a;
+  --bg-surface:  #0f1624;
+  --bg-elevated: #151d2e;
+  --bg-border:   #1e2a3f;
+  --accent-amber: #fbbf24;
+  --accent-teal:  #2dd4bf;
+  --accent-coral: #fb7185;
+  --text-primary:   #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-muted:     #475569;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--bg-border); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* Recharts overrides for dark theme */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: #1e2a3f !important;
+}
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: #151d2e !important;
+  border: 1px solid #1e2a3f !important;
+  border-radius: 8px !important;
+}
+.recharts-text { fill: #94a3b8 !important; font-family: 'IBM Plex Mono', monospace !important; font-size: 11px !important; }
+.recharts-legend-item-text { color: #94a3b8 !important; font-size: 12px !important; }
+
+@layer utilities {
+  .font-display { font-family: 'Syne', sans-serif; }
+  .font-mono    { font-family: 'IBM Plex Mono', monospace; }
+
+  .card {
+    background: var(--bg-surface);
+    border: 1px solid var(--bg-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .card-elevated {
+    background: var(--bg-elevated);
+    border: 1px solid var(--bg-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+
+  .badge-alert   { background: rgba(251,113,133,0.12); color: #fb7185; border: 1px solid rgba(251,113,133,0.25); }
+  .badge-warning { background: rgba(251,191,36,0.12);  color: #fbbf24; border: 1px solid rgba(251,191,36,0.25); }
+  .badge-info    { background: rgba(45,212,191,0.12);  color: #2dd4bf; border: 1px solid rgba(45,212,191,0.25); }
+  .badge-success { background: rgba(74,222,128,0.12);  color: #4ade80; border: 1px solid rgba(74,222,128,0.25); }
+
+  .stat-value { font-family: 'IBM Plex Mono', monospace; font-weight: 600; }
+}
